@@ -59,3 +59,6 @@ whisper stt/.flake8
 tmp/
 temp/
 *.tmp
+
+# Model caches
+.cache/
