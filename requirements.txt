@@ -1,0 +1,19 @@
+# Core STT Dependencies
+numpy>=1.26.0
+sounddevice>=0.4.6
+scipy>=1.11.0
+
+# Whisper STT
+openai-whisper>=20231117
+faster-whisper>=0.10.0
+
+# Voice Activity Detection
+webrtcvad>=2.0.10
+
+# Optional: GPU Acceleration (Intel Iris Xe)
+# onnxruntime-directml>=1.16.0
+# optimum-intel>=1.15.0
+# openvino>=2023.3.0
+
+# Optional: Process Management
+# psutil>=5.9.0

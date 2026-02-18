@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output files (generated audio)
+output/
+*.wav
+
+# Logs
+*.log
+
+# DeepSeek-R1 (LLM - not ready for push)
+DeepSeek-R1/
+
+# KittenTTS (TTS - not ready for push)
+KittenTTS/
+
+# Whisper STT - include only the package, not the full repo
+whisper stt/.git/
+whisper stt/.gitignore
+whisper stt/.flake8
+
+# Test audio recordings
+*.wav
+
+# Temporary files
+tmp/
+temp/
+*.tmp
