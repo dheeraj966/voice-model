@@ -91,14 +91,13 @@ def main():
         print(f"{GREEN}[2/4] GPU Compilation Successful.{RESET}")
         processor = AutoProcessor.from_pretrained(MODEL_ID)
         
-        # Create the pipeline with Beam Search for nuance
+        # Create the pipeline
         pipe = pipeline(
             "automatic-speech-recognition",
             model=model,
             tokenizer=processor.tokenizer,
             feature_extractor=processor.feature_extractor,
-            device="cpu",
-            generate_kwargs={"beam_size": BEAM_SIZE, "best_of": BEAM_SIZE}
+            device="cpu"
         )
         
         print(f"{CYAN}[3/4] Pre-Warming GPU with dummy data...{RESET}")
@@ -168,10 +167,8 @@ def main():
     except KeyboardInterrupt:
         pass
     finally:
-        sys.stdout.write("\033[?25h
-")
-        print(f"
-{GREEN}SESSION ENDED. Starting Deep GPU Capture Summary...{RESET}")
+        sys.stdout.write("\033[?25h\n")
+        print(f"\n{GREEN}SESSION ENDED. Starting Deep GPU Capture Summary...{RESET}")
         
         if full_audio_log:
             final_audio = np.concatenate(full_audio_log)
@@ -186,15 +183,11 @@ def main():
             final_result = pipe(final_audio.astype(np.float32))
             final_text = final_result["text"].strip()
             
-            print(f"
-{BLUE}{'═'*70}{RESET}")
+            print(f"\n{BLUE}{'═'*70}{RESET}")
             print(f"{GREEN}{BOLD}FINAL SESSION SUMMARY (Iris Xe Optimized):{RESET}")
-            print(f"
-"{final_text if final_text else '(No speech detected)'}"
-")
+            print(f"\n\"{final_text if final_text else '(No speech detected)'}\"\n")
             print(f"{BLUE}{'═'*70}{RESET}")
-            print(f"Captured: {out_file}
-")
+            print(f"Captured: {out_file}\n")
             
     sys.exit(0)
 
